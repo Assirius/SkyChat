@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
+    <title>{{ title }} | SkyChat</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -12,12 +12,19 @@
 <body class="bg-sky-300"></body>
     <nav class="flex items-center justify-between px-4 py-6 bg-sky-600">
         <div>
-            <a href="#" class="text-xl text-white">SkyChat</a>
+            <a href="{% url 'home' %}" class="text-xl text-white">SkyChat</a>
         </div>
         
         <div class="flex items-center space-x-4">
-            <a href="#" class="text-white hover:text-gray-200">Войти</a>
-            <a href="#" class="px-5 py-3 rounded-xl text-white bg-sky-300 hover:bg-sky-500">Зарегистрироваться</a>
+            {% if user.is_authenticated %}
+                <span class="text-white hover:text-gray-200 px-2">{{ user.username }} </span> |
+                <a href="{% url 'users:logout' %}" class="text-white hover:text-gray-200 px-2">Выйти</a>
+            {% else %}
+            <a href="{% url 'users:login' %}" class="text-white hover:text-gray-200">Войти</a>
+            <a href="{% url 'users:register' %}" class="px-5 py-3 rounded-xl text-white bg-sky-300 hover:bg-sky-500">
+                Зарегистрироваться
+            </a>
+            {% endif %}
         </div>
     </nav>
 
