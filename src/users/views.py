@@ -7,6 +7,7 @@ from users.forms import RegisterUserForm, LoginUserForm
 
 
 class RegisterUserView(CreateView):
+    """Регистрация пользователя"""
     form_class = RegisterUserForm
     template_name = "users/register.html"
     extra_context = {"title": "Регистрация"}
@@ -14,6 +15,7 @@ class RegisterUserView(CreateView):
 
 
 class LoginUserView(LoginView):
+    """Аутентификация/авторизация пользователя"""
     form_class = LoginUserForm
     template_name = "users/login.html"
     extra_context = {"title": "Авторизация"}
