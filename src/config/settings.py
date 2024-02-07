@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'core.apps.CoreConfig',
     'users.apps.UsersConfig',
+    'rooms.apps.RoomsConfig',
 ]
 
 MIDDLEWARE = [

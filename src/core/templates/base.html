@@ -17,13 +17,16 @@
         
         <div class="flex items-center space-x-4">
             {% if user.is_authenticated %}
-                <span class="text-white hover:text-gray-200 px-2">{{ user.username }} </span> |
-                <a href="{% url 'users:logout' %}" class="text-white hover:text-gray-200 px-2">Выйти</a>
+                <a href="#" class="text-white hover:text-gray-200">Комнаты</a>
+                <a href="{% url 'users:logout' %}" class="px-5 py-3 rounded-xl text-white bg-sky-300 hover:bg-sky-500">
+                    Выйти
+                </a>
+{#                <a href="{% url 'users:logout' %}" class="text-white hover:text-gray-200 px-2">Выйти</a>#}
             {% else %}
-            <a href="{% url 'users:login' %}" class="text-white hover:text-gray-200">Войти</a>
-            <a href="{% url 'users:register' %}" class="px-5 py-3 rounded-xl text-white bg-sky-300 hover:bg-sky-500">
-                Зарегистрироваться
-            </a>
+                <a href="{% url 'users:login' %}" class="text-white hover:text-gray-200">Войти</a>
+                <a href="{% url 'users:register' %}" class="px-5 py-3 rounded-xl text-white bg-sky-300 hover:bg-sky-500">
+                    Зарегистрироваться
+                </a>
             {% endif %}
         </div>
     </nav>
