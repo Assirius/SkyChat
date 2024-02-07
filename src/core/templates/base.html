@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<body class="bg-sky-300"></body>
+    <nav class="flex items-center justify-between px-4 py-6 bg-sky-600">
+        <div>
+            <a href="#" class="text-xl text-white">SkyChat</a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <a href="#" class="text-white hover:text-gray-200">Войти</a>
+            <a href="#" class="px-5 py-3 rounded-xl text-white bg-sky-300 hover:bg-sky-500">Зарегистрироваться</a>
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+</html>
