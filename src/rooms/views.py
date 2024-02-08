@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 
-from .models import Room
+from .models import Room, Message
 
 
 class RoomListView(LoginRequiredMixin, ListView):
@@ -14,7 +14,7 @@ class RoomListView(LoginRequiredMixin, ListView):
 
 
 class RoomDetailView(LoginRequiredMixin, DetailView):
-    """Детальная информация о комнате"""
+    """Чат комнаты"""
     template_name = "rooms/room-detail.html"
     context_object_name = "room"
     slug_url_kwarg = "room_slug"
@@ -24,5 +24,6 @@ class RoomDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['messages'] = Message.objects.filter(room=context.get("room"))
         context["title"] = context.get("room").name
         return context
